@@ -1,3 +1,7 @@
+Muhammad Radhitya Utomo
+2206830744
+Gamedev Class 2025
+
 CONTROLS
 - WASD to move, SPACE to jump and double jump.
 
