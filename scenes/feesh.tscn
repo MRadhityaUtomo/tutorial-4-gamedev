@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8wwrab0q372k"]
+
+[ext_resource type="Script" path="res://scenes/feesh.gd" id="1_yhwky"]
+[ext_resource type="Texture2D" uid="uid://bpomp7laf2qmf" path="res://assets/kenney_platformerpack/PNG/Enemies/fishBlue_dead.png" id="2_3wbu0"]
+[ext_resource type="PackedScene" uid="uid://bef1b3nnyk4g4" path="res://scenes/LoseArea.tscn" id="3_261af"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_joeyo"]
+radius = 55.4437
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aubgb"]
+radius = 64.6672
+
+[node name="feesh" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_yhwky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3wbu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.84, 1)
+shape = SubResource("CircleShape2D_joeyo")
+
+[node name="LoseArea" parent="." instance=ExtResource("3_261af")]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="LoseArea" index="0"]
+position = Vector2(5.96046e-08, 1)
+scale = Vector2(0.760001, 0.873225)
+shape = SubResource("CircleShape2D_aubgb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="LoseArea"]

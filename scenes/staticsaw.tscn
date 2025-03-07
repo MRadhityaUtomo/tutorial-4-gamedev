@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://di5gkyss1iixy"]
+
+[ext_resource type="Script" path="res://scenes/staticsaw.gd" id="1_0ehcr"]
+[ext_resource type="Texture2D" uid="uid://dvv3mspleuvvy" path="res://assets/kenney_platformerpack/PNG/Enemies/saw.png" id="2_1uscm"]
+[ext_resource type="PackedScene" uid="uid://ssrt25ebrpa8" path="res://scenes/lose_area_2.tscn" id="3_b0kyy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyyri"]
+radius = 60.075
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n75iv"]
+radius = 61.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_0ehcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gyyri")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1uscm")
+
+[node name="LoseArea2" parent="." instance=ExtResource("3_b0kyy")]
+
+[node name="CollisionShape2D" parent="LoseArea2" index="0"]
+shape = SubResource("CircleShape2D_n75iv")
+
+[editable path="LoseArea2"]

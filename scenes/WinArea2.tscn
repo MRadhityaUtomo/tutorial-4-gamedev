@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccjetu7jtsjln"]
+
+[ext_resource type="Script" path="res://scenes/winlevel2.gd" id="1_fiafl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y2bj"]
+size = Vector2(69, 44)
+
+[node name="WinArea2" type="Area2D"]
+script = ExtResource("1_fiafl")
+
+[node name="coliisionshape" type="CollisionShape2D" parent="."]
+position = Vector2(3, -1)
+shape = SubResource("RectangleShape2D_0y2bj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://yqmk0vpvnyxr"]
+[gd_scene load_steps=10 format=4 uid="uid://yqmk0vpvnyxr"]
 
 [ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://cluh2ekc38ktx" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_dirt.png" id="2_v777k"]
 [ext_resource type="PackedScene" uid="uid://cvfgfn5icc27j" path="res://scenes/area2d.tscn" id="3_pw17p"]
 [ext_resource type="Texture2D" uid="uid://d0xi3jghkp5hk" path="res://assets/Keanu.png" id="4_5yipa"]
 [ext_resource type="PackedScene" uid="uid://bef1b3nnyk4g4" path="res://scenes/LoseArea.tscn" id="5_w6mkj"]
-[ext_resource type="PackedScene" uid="uid://c6mmsfv6ojpr2" path="res://scenes/spawner.tscn" id="6_yulbd"]
+[ext_resource type="Script" path="res://scenes/spawner.gd" id="6_uc8od"]
+[ext_resource type="PackedScene" uid="uid://c8wwrab0q372k" path="res://scenes/feesh.tscn" id="7_ph78i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qlfi"]
 texture = ExtResource("2_v777k")
@@ -56,7 +57,7 @@ sources/1 = SubResource("TileSetAtlasSource_8qlfi")
 position = Vector2(4, 0)
 
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(313, 147)
+position = Vector2(2828, -323)
 collision_layer = 3
 collision_mask = 3
 
@@ -78,7 +79,10 @@ position = Vector2(-27.7832, -3.8147e-06)
 scale = Vector2(10.3052, -3.98469)
 
 [node name="LoseArea" parent="." instance=ExtResource("5_w6mkj")]
-position = Vector2(1664, 844)
-scale = Vector2(869, -2.78473)
+position = Vector2(1629, 787)
+scale = Vector2(33.3994, -0.503845)
 
-[node name="Spawner" parent="." instance=ExtResource("6_yulbd")]
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(1491, -575)
+script = ExtResource("6_uc8od")
+obstacle = ExtResource("7_ph78i")
