@@ -12,3 +12,6 @@ Changes and change flow
 - Added saw blades raining down from level2 spawner.
 - Added static spining saws as obstacles.
 - Added flag as the final winarea
+
+I used editable child for objects needing similar signals, although not optimal, I kind of already did it anyways so a good food for thought in the future.
+The work process of the second level is similar to the level 1 creation with a spawner, tilemap painting, and lose/win areas as collision areas tied to the obstacles/flag.
