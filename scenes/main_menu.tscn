@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0tyj7ah6tn13"]
+
+[ext_resource type="Texture2D" uid="uid://dyxox1eowu8mp" path="res://assets/GimJam2025/UI Background/Main Menu Base.png" id="1_07ygw"]
+[ext_resource type="Script" path="res://link_button.gd" id="1_ttjoq"]
+[ext_resource type="Texture2D" uid="uid://c3j8bvdstx7br" path="res://icon.png" id="2_bl6r4"]
+[ext_resource type="Script" path="res://scenes/link_button_2.gd" id="2_xg336"]
+
+[sub_resource type="SystemFont" id="SystemFont_ptf85"]
+font_names = PackedStringArray("Abel Pro")
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("1_07ygw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.976471, 0.917647, 0.968627, 1)
+theme_override_fonts/font = SubResource("SystemFont_ptf85")
+theme_override_font_sizes/font_size = 60
+text = "Death by Peanuts"
+
+[node name="LinkButton" type="LinkButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.576471, 0.396078, 0.937255, 1)
+text = "New Game"
+script = ExtResource("1_ttjoq")
+scene_to_load = "Level1"
+
+[node name="LinkButton2" type="LinkButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.576471, 0.396078, 0.937255, 1)
+text = "Stage Select"
+script = ExtResource("2_xg336")
+scene_to_load = "levelselect"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bl6r4")
+stretch_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/LinkButton" method="_on_New_Game_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/LinkButton" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/LinkButton2" to="HBoxContainer/VBoxContainer/LinkButton2" method="_on_pressed"]

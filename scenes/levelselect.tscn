@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://carb31e1k8gi8"]
+
+[ext_resource type="Script" path="res://scenes/level_1_link.gd" id="1_go2hj"]
+[ext_resource type="Script" path="res://scenes/level_2_link.gd" id="2_upcgf"]
+
+[node name="Control" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690585, 0.618866, 0.425524, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="level1link" type="LinkButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "level1"
+script = ExtResource("1_go2hj")
+scene_to_load = "Level1"
+
+[node name="level2link" type="LinkButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "level2"
+script = ExtResource("2_upcgf")
+scene_to_load = "level2"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/level1link" to="MarginContainer/HBoxContainer/level1link" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/level2link" to="MarginContainer/HBoxContainer/level2link" method="_on_pressed"]

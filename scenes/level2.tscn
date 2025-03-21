@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dcfxtjkyse7g"]
+[gd_scene load_steps=14 format=4 uid="uid://dcfxtjkyse7g"]
 
 [ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1_jluwc"]
 [ext_resource type="PackedScene" uid="uid://ssrt25ebrpa8" path="res://scenes/lose_area_2.tscn" id="1_lco0q"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ccjetu7jtsjln" path="res://scenes/WinArea2.tscn" id="7_pvtam"]
 [ext_resource type="PackedScene" uid="uid://di5gkyss1iixy" path="res://scenes/staticsaw.tscn" id="8_06if4"]
 [ext_resource type="Texture2D" uid="uid://7iu0eiou5jsd" path="res://assets/kenney_platformerpack/PNG/Items/flagGreen2.png" id="8_pb1th"]
+[ext_resource type="PackedScene" uid="uid://b3ksbktkfe5dx" path="res://scenes/GUI.tscn" id="9_0vvlq"]
+[ext_resource type="PackedScene" uid="uid://dxte77xcuakf5" path="res://scenes/pause_menu.tscn" id="10_tamcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otghp"]
 texture = ExtResource("2_argdg")
@@ -124,3 +126,13 @@ scale = Vector2(1.31432, 1.31432)
 [node name="StaticBody2D" parent="." instance=ExtResource("8_06if4")]
 position = Vector2(443, 319)
 scale = Vector2(2.25754, 2.25754)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("9_0vvlq")]
+offset_left = 4.0
+offset_right = 5.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("10_tamcx")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://yqmk0vpvnyxr"]
+[gd_scene load_steps=10 format=4 uid="uid://yqmk0vpvnyxr"]
 
 [ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://cluh2ekc38ktx" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_dirt.png" id="2_v777k"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bef1b3nnyk4g4" path="res://scenes/LoseArea.tscn" id="5_w6mkj"]
 [ext_resource type="PackedScene" uid="uid://c6mmsfv6ojpr2" path="res://scenes/spawner.tscn" id="6_yulbd"]
 [ext_resource type="PackedScene" uid="uid://b3ksbktkfe5dx" path="res://scenes/GUI.tscn" id="7_31j4x"]
-[ext_resource type="PackedScene" uid="uid://dxte77xcuakf5" path="res://scenes/pause_menu.tscn" id="8_64qol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qlfi"]
 texture = ExtResource("2_v777k")
@@ -82,6 +81,7 @@ scale = Vector2(10.3052, -3.98469)
 [node name="LoseArea" parent="." instance=ExtResource("5_w6mkj")]
 position = Vector2(1664, 844)
 scale = Vector2(869, -2.78473)
+sceneName = null
 
 [node name="Spawner" parent="." instance=ExtResource("6_yulbd")]
 
@@ -91,8 +91,3 @@ scale = Vector2(869, -2.78473)
 offset_left = 4.0
 offset_right = 5.0
 offset_bottom = 23.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("8_64qol")]
-offset_left = 4.0
-offset_right = 4.0

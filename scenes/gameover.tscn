@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://do5tep1x2rvfg"]
+
+[ext_resource type="Script" path="res://scenes/tryagain.gd" id="1_uyt1a"]
+
+[sub_resource type="SystemFont" id="SystemFont_u6kqs"]
+font_names = PackedStringArray("Viner Hand ITC")
+
+[node name="Control" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.467546, 0.556209, 0.573133, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.570395, 0.233507, 0.359624, 1)
+theme_override_fonts/font = SubResource("SystemFont_u6kqs")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -112.0
+offset_right = 20.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "TRY AGAIN?"
+underline = 1
+script = ExtResource("1_uyt1a")
+scene_to_load = "main_menu"
+
+[connection signal="pressed" from="LinkButton" to="LinkButton" method="_on_pressed"]
