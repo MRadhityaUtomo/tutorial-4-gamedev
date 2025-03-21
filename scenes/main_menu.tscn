@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0tyj7ah6tn13"]
+[gd_scene load_steps=7 format=3 uid="uid://d0tyj7ah6tn13"]
 
 [ext_resource type="Texture2D" uid="uid://dyxox1eowu8mp" path="res://assets/GimJam2025/UI Background/Main Menu Base.png" id="1_07ygw"]
 [ext_resource type="Script" path="res://link_button.gd" id="1_ttjoq"]
 [ext_resource type="Texture2D" uid="uid://c3j8bvdstx7br" path="res://icon.png" id="2_bl6r4"]
 [ext_resource type="Script" path="res://scenes/link_button_2.gd" id="2_xg336"]
+[ext_resource type="Texture2D" uid="uid://dp5ctc42lgtys" path="res://assets/GimJam2025/SYMBOLS/Gamepad CONTROLS - small.png" id="5_df5fa"]
 
 [sub_resource type="SystemFont" id="SystemFont_ptf85"]
 font_names = PackedStringArray("Abel Pro")
@@ -63,6 +64,10 @@ scene_to_load = "levelselect"
 layout_mode = 2
 texture = ExtResource("2_bl6r4")
 stretch_mode = 2
+
+[node name="GamepadControls-Small" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(528, 8.5)
+texture = ExtResource("5_df5fa")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/LinkButton" method="_on_New_Game_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/LinkButton" method="_on_pressed"]

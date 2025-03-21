@@ -7,7 +7,7 @@ CONTROLS
 
 Changes and change flow
 - Modified signal of winarea level 1 to transfer player into level 2
-      - Menggunakan areawin yang diberi signal untuk mengubah ke scene level 2 ketika disentuh.
+	  - Menggunakan areawin yang diberi signal untuk mengubah ke scene level 2 ketika disentuh.
 - Added Level2 scene
 - Level 2 uses the grey tilemap from the preset, is more focused on vertical parkour.
 - Added saw blades raining down from level2 spawner. Spawner code is similar to what is given in the tutorial, albeit faster spawn rate.
