@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2nvceox81igl"]
+[gd_scene load_steps=11 format=3 uid="uid://b2nvceox81igl"]
 
 [ext_resource type="Script" path="res://scenes/feesh.gd" id="1_068wy"]
 [ext_resource type="Texture2D" uid="uid://dvv3mspleuvvy" path="res://assets/kenney_platformerpack/PNG/Enemies/saw.png" id="2_4t15h"]
@@ -10,21 +10,44 @@ radius = 8.01381
 [sub_resource type="CircleShape2D" id="CircleShape2D_jx52f"]
 radius = 57.61
 
-[node name="saw" type="RigidBody2D"]
-scale = Vector2(1.94378, 1.94378)
-collision_layer = 2
+[sub_resource type="Gradient" id="Gradient_tyagj"]
+colors = PackedColorArray(5.77569e-07, 0.611785, 0.565892, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yop1t"]
+gradient = SubResource("Gradient_tyagj")
+
+[sub_resource type="Curve" id="Curve_3q0ro"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.990826, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k10f4"]
+curve = SubResource("Curve_3q0ro")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yuvlt"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 100.0
+gravity = Vector3(0, 100, 0)
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_k10f4")
+color_ramp = SubResource("GradientTexture1D_yop1t")
+
+[node name="saw" type="RigidBody2D" groups=["projectile"]]
+collision_layer = 3
 collision_mask = 2
-mass = 0.017
-gravity_scale = 0.656
+gravity_scale = 0.5
 script = ExtResource("1_068wy")
+knockback_recovery_time = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -1.54338)
 scale = Vector2(0.909381, 0.909381)
 texture = ExtResource("2_4t15h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
+scale = Vector2(7.30569, 7.30569)
 shape = SubResource("CircleShape2D_mlkx8")
 
 [node name="LoseArea2" parent="." instance=ExtResource("3_noihx")]
@@ -34,6 +57,15 @@ collision_mask = 3
 [node name="CollisionShape2D" parent="LoseArea2" index="0"]
 position = Vector2(-5.96046e-08, -2.05785)
 shape = SubResource("CircleShape2D_jx52f")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_yuvlt")
+one_shot = true
+explosiveness = 0.5
+randomness = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

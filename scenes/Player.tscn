@@ -1,7 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc2fujtl13g10"]
+[gd_scene load_steps=12 format=3 uid="uid://bc2fujtl13g10"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_xsgpf"]
 [ext_resource type="Texture2D" uid="uid://dhsqj8dybb7fq" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_alien.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://d0m0wv8bjyhqi" path="res://scenes/player_bullet.tscn" id="2_o3lk4"]
+[ext_resource type="Texture2D" uid="uid://dk3b8oij0kb2v" path="res://assets/kenney_platformerpack/PNG/Particles/brickGrey.png" id="3_hep2o"]
+[ext_resource type="Texture2D" uid="uid://c3j8bvdstx7br" path="res://icon.png" id="4_h5rd0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_svj4k"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30, 1, 1)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -200, 0)
+scale_min = 0.1
+scale_max = 0.2
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(52.924, 76.884)
@@ -64,6 +78,15 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 process_mode = 1
 script = ExtResource("1_xsgpf")
+bullet_scene = ExtResource("2_o3lk4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-18, 38)
+amount = 4
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_svj4k")
+texture = ExtResource("3_hep2o")
+lifetime = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
@@ -84,3 +107,12 @@ libraries = {
 position = Vector2(3, 4)
 zoom = Vector2(0.5, 0.5)
 drag_horizontal_enabled = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ShootMarker" type="Marker2D" parent="Node2D"]
+position = Vector2(38, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/ShootMarker"]
+scale = Vector2(0.184507, 0.184507)
+texture = ExtResource("4_h5rd0")

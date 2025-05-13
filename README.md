@@ -25,8 +25,11 @@ The work process of the second level is similar to the level 1 creation with a s
 
 1. Added the tutorial prerequisites (main menu raw, health count GUI, Game Over screen)
 2. Added Working Pause feature by pressing ESC while in a level.
-    - Setting the process tag in the pause scene to always so that it is still interactable even if get_tree.paused = true. Link buttons added for Resume, Restart, Level Select, and Main Menu. 
+	- Setting the process tag in the pause scene to always so that it is still interactable even if get_tree.paused = true. Link buttons added for Resume, Restart, Level Select, and Main Menu. 
 3. Added working level select screen from the main menu button.
-    - Used link buttons and script similar to the new game button.
+	- Used link buttons and script similar to the new game button.
 4. Added working back to menu button after getting a game over.
 5. Minor design addons unto main menu.
+
+
+## TUTORIAL 8

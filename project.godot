@@ -19,6 +19,12 @@ config/icon="res://icon.png"
 
 global="*res://scenes/global.gd"
 
+[display]
+
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+mouse_cursor/custom_image="res://assets/GimJam2025/SYMBOLS/crosshair.png"
+
 [input]
 
 up={
