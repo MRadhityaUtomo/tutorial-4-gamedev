@@ -33,3 +33,12 @@ The work process of the second level is similar to the level 1 creation with a s
 
 
 ## TUTORIAL 8
+
+1. Finished Tutorial 8
+2. Added GPUParticle2D nodes to key scenes
+	- Level1, Level2, Player walk trails, rain
+3. Added more outside of tutorial 8
+	- Shooting mechanic (LeftClick), player can shoot a bullet, when it hits a fish or saw it will knock it back.
+	- Added particle effects when fish or saw is hit.
+	- Fixed some minor bugs to pause menu
+4. Shooting mechanic is for the balancing part of the task, changed projectile spaawnrates to adjust to the new shooting knockback mechanic. 
